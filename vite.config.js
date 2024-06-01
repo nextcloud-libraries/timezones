@@ -8,4 +8,11 @@ import { createLibConfig } from '@nextcloud/vite-config'
 export default createLibConfig({
 	index: 'src/index.js',
 }, {
+	config: {
+		test: {
+			setupFiles: [
+				'./tests/setup.js',
+			],
+		},
+	},
 })
