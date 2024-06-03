@@ -9,6 +9,7 @@
 - Christoph Wurst <christoph@winzerhof-wurst.at>
 - Georg Ehrke <developer@georgehrke.com>
 - Georg Ehrke <georgehrke@users.noreply.github.com>
+- Johannes Merkel <mail@johannesgge.de>
 - Matteo Settenvini <matteo.settenvini@montecristosoftware.eu>
 - Richard Steinmetz <richard@steinmetz.cloud>
 - Thomas Citharel <tcit@tcit.fr>
