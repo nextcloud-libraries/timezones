@@ -16,10 +16,11 @@
     "url": "git+https://github.com/nextcloud-libraries/timezones.git"
   },
   "type": "module",
-  "main": "dist/index.mjs",
+  "main": "dist/index.cjs",
   "exports": {
     ".": {
-      "import": "./dist/index.mjs"
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
     },
     "./resources/timezones/zones.json": "./resources/timezones/zones.json"
   },
