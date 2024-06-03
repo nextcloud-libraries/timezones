@@ -1,7 +1,7 @@
 {
   "name": "@nextcloud/timezones",
   "description": "A small library containing common time zone logic and data",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "AGPL-3.0-or-later",
   "homepage": "https://github.com/nextcloud-libraries/timezones",
   "author": {
