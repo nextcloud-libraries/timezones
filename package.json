@@ -44,7 +44,7 @@
     "npm": "^10.0.0"
   },
   "dependencies": {
-    "ical.js": "^2.0.1"
+    "ical.js": "^2.1.0"
   },
   "devDependencies": {
     "@nextcloud/browserslist-config": "^3.0.1",
