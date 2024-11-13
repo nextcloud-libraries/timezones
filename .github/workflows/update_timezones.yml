@@ -13,6 +13,10 @@ jobs:
     runs-on: ubuntu-latest
     name: update-timezones
 
+    permissions:
+      contents: write
+      pull-requests: write
+
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
 
@@ -38,10 +42,7 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@5e914681df9dc83aa4e4905692ca88beb2f9e91f # v7
         with:
-          token: ${{ secrets.COMMAND_BOT_PAT }}
           commit-message: "fix: update timezones data"
-          committer: GitHub <noreply@github.com>
-          author: nextcloud-command <nextcloud-command@users.noreply.github.com>
           signoff: true
           branch: automated/noid/update-timezones-data
           base: main
