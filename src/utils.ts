@@ -3,13 +3,13 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
-interface IRegion {
+export interface IRegion {
 	cities: string[]
 	label: string
 	timezoneId: string
 }
 
-interface IContinent {
+export interface IContinent {
 	continent: string
 	regions: IRegion[]
 }
