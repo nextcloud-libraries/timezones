@@ -5,11 +5,8 @@
 
 import { expect, test } from 'vitest'
 import ICAL from 'ical.js'
-import Timezone from '../../src/timezone.js';
-
-test('Timezone should be defined', () => {
-	expect(Timezone).toBeDefined()
-})
+import { Timezone } from '../../src/timezone.ts'
+import { getAsset } from '../utils.ts'
 
 test('Timezone should take two parameters: timezoneId and ics', () => {
 	const name = 'Europe/Berlin'
@@ -41,19 +38,33 @@ test('Timezone should take one parameters: icalValue (ICAL.Component)', () => {
 	expect(timezone.timezoneId).toEqual('Europe/Berlin')
 })
 
-test('Timezone should support lazy loading', () => {
+test('Timezone should support lazy loading (Component)', () => {
 	const name = 'Europe/Berlin'
 	const ics = getAsset('timezone-europe-berlin')
 
 	const timezone = new Timezone(name, ics)
 
 	expect(timezone.timezoneId).toEqual(name)
+	/// @ts-expect-error access private property for white-box-testing
 	expect(timezone._initialized).toEqual(false)
 
-	expect(timezone.toICALJs() instanceof ICAL.Component).toEqual(true)
+	expect(timezone.toICALJs()).toBeInstanceOf(ICAL.Component)
+	/// @ts-expect-error access private property for white-box-testing
 	expect(timezone._initialized).toEqual(true)
+})
 
-	expect(timezone.toICALTimezone() instanceof ICAL.Timezone).toEqual(true)
+test('Timezone should support lazy loading (Timezone)', () => {
+	const name = 'Europe/Berlin'
+	const ics = getAsset('timezone-europe-berlin')
+
+	const timezone = new Timezone(name, ics)
+
+	expect(timezone.timezoneId).toEqual(name)
+	/// @ts-expect-error access private property for white-box-testing
+	expect(timezone._initialized).toEqual(false)
+
+	expect(timezone.toICALTimezone()).toBeInstanceOf(ICAL.Timezone)
+	/// @ts-expect-error access private property for white-box-testing
 	expect(timezone._initialized).toEqual(true)
 })
 
@@ -78,7 +89,7 @@ test('Timezone should provide an timestampToArray method', () => {
 		19,
 		11,
 		44,
-		19
+		19,
 	])
 })
 
