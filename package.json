@@ -1,13 +1,8 @@
 {
   "name": "@nextcloud/timezones",
-  "description": "A small library containing common time zone logic and data",
   "version": "0.1.1",
-  "license": "AGPL-3.0-or-later",
+  "description": "A small library containing common time zone logic and data",
   "homepage": "https://github.com/nextcloud-libraries/timezones",
-  "author": {
-    "name": "Richard Steinmetz",
-    "email": "richard@steinmetz.cloud"
-  },
   "bugs": {
     "url": "https://github.com/nextcloud-libraries/timezones/issues"
   },
@@ -15,15 +10,21 @@
     "type": "git",
     "url": "git+https://github.com/nextcloud-libraries/timezones.git"
   },
+  "license": "AGPL-3.0-or-later",
+  "author": {
+    "name": "Richard Steinmetz",
+    "email": "richard@steinmetz.cloud"
+  },
   "type": "module",
-  "main": "dist/index.cjs",
   "exports": {
     ".": {
       "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
     },
     "./resources/timezones/zones.json": "./resources/timezones/zones.json"
   },
+  "main": "dist/index.cjs",
   "files": [
     "README.md",
     "LICENSES",
@@ -33,16 +34,16 @@
   "scripts": {
     "build": "vite build --mode=production",
     "dev": "vite build --mode=development",
-    "watch": "vite build --mode=development --watch",
     "lint": "eslint --ext=.js src",
     "lint:fix": "eslint --ext=.js src --fix",
     "test": "TZ=UTC vitest run ",
-    "test:watch": "TZ=UTC vitest watch"
+    "test:watch": "TZ=UTC vitest watch",
+    "ts:check": "tsc --noEmit",
+    "watch": "vite build --mode=development --watch"
   },
-  "engines": {
-    "node": "^20.0.0",
-    "npm": "^10.0.0"
-  },
+  "browserslist": [
+    "extends @nextcloud/browserslist-config"
+  ],
   "dependencies": {
     "ical.js": "^2.1.0"
   },
@@ -50,10 +51,18 @@
     "@nextcloud/browserslist-config": "^3.0.1",
     "@nextcloud/eslint-config": "^8.4.2",
     "@nextcloud/vite-config": "^2.2.2",
+    "@types/node": "^22.14.1",
+    "typescript": "^5.8.3",
     "vite": "^5.4.11",
     "vitest": "^2.1.1"
   },
-  "browserslist": [
-    "extends @nextcloud/browserslist-config"
-  ]
+  "engines": {
+    "node": "^20 || ^22"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "npm",
+      "version": "^10"
+    }
+  }
 }
