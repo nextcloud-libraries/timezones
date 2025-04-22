@@ -1,0 +1,24 @@
+{
+	"$schema": "https://json.schemastore.org/tsconfig",
+	"compilerOptions": {
+		"allowImportingTsExtensions": true,
+		"declaration": true,
+		"emitDeclarationOnly": true,
+		"esModuleInterop": true,
+		"resolveJsonModule": true,
+		"moduleResolution": "bundler",
+		"module": "ESNext",
+		"target": "ESNext",
+		"lib": ["ESNext"],
+		"outDir": "./dist",
+		"rootDir": "src"
+	},
+	"include": [
+		"src"
+	],
+	"exclude": [
+		"dist",
+		"**/*.spec.ts",
+		"**/*.test.ts"
+	]
+}

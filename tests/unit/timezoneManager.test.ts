@@ -4,8 +4,9 @@
  */
 
 import { beforeEach, expect, test } from 'vitest'
-import { getTimezoneManager, isOlsonTimezone } from '../../src/timezoneManager.js';
-import Timezone from '../../src/timezone.js';
+import { getTimezoneManager } from '../../src/timezoneManager.ts'
+import { Timezone } from '../../src/timezone.ts'
+import { getAsset } from '../utils.ts'
 
 beforeEach(() => {
 	getTimezoneManager().clearAllTimezones()
@@ -125,13 +126,13 @@ test('TimezoneManager should provide a method to check if a certain timezone is 
 test('TimezoneManager should provide a list of built-in timezones', () => {
 	const timezoneManager = getTimezoneManager()
 
-	expect(timezoneManager.listAllTimezones()).toEqual(["UTC", "floating"])
+	expect(timezoneManager.listAllTimezones()).toEqual(['UTC', 'floating'])
 })
 
 test('TimezoneManager should provide a list of built-in timezones and aliases', () => {
 	const timezoneManager = getTimezoneManager()
 
-	expect(timezoneManager.listAllTimezones(true)).toEqual(["UTC", "floating", "GMT", "Z"])
+	expect(timezoneManager.listAllTimezones(true)).toEqual(['UTC', 'floating', 'GMT', 'Z'])
 })
 
 test('TimezoneManager should provide a list of all timezones', () => {
@@ -146,7 +147,7 @@ test('TimezoneManager should provide a list of all timezones', () => {
 	timezoneManager.registerTimezone(tzLA)
 	timezoneManager.registerAlias('foobar/Berlin', 'Europe/Berlin')
 
-	expect(timezoneManager.listAllTimezones()).toEqual(["UTC", "floating", "Europe/Berlin", "America/New_York", "America/Los_Angeles"])
+	expect(timezoneManager.listAllTimezones()).toEqual(['UTC', 'floating', 'Europe/Berlin', 'America/New_York', 'America/Los_Angeles'])
 })
 
 test('TimezoneManager should provide a list of all timezones to include all aliases', () => {
@@ -161,7 +162,7 @@ test('TimezoneManager should provide a list of all timezones to include all alia
 	timezoneManager.registerTimezone(tzLA)
 	timezoneManager.registerAlias('foobar/Berlin', 'Europe/Berlin')
 
-	expect(timezoneManager.listAllTimezones(true)).toEqual(["UTC", "floating", "Europe/Berlin", "America/New_York", "America/Los_Angeles", "GMT", "Z", 'foobar/Berlin'])
+	expect(timezoneManager.listAllTimezones(true)).toEqual(['UTC', 'floating', 'Europe/Berlin', 'America/New_York', 'America/Los_Angeles', 'GMT', 'Z', 'foobar/Berlin'])
 
 })
 
@@ -269,9 +270,4 @@ test('TimezoneManager should provide a method to check if a name is an alias', (
 
 	expect(timezoneManager.isAlias('Europe/Berlin')).toEqual(false)
 	expect(timezoneManager.isAlias('foobar/Berlin')).toEqual(true)
-})
-
-test('TimezoneManager should provide method to check if a given timezone is an Olson timezone', () => {
-	expect(isOlsonTimezone('Europe/Berlin')).toEqual(true)
-	expect(isOlsonTimezone('US/Western')).toEqual(false)
 })

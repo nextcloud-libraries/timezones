@@ -6,14 +6,9 @@
 import { createLibConfig } from '@nextcloud/vite-config'
 
 export default createLibConfig({
-	index: 'src/index.js',
+	index: 'src/index.ts',
 }, {
 	libraryFormats: ['es', 'cjs'],
-	config: {
-		test: {
-			setupFiles: [
-				'./tests/setup.js',
-			],
-		},
-	},
+	DTSPluginOptions: { rollupTypes: true },
+	thirdPartyLicense: false,
 })

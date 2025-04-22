@@ -5,8 +5,9 @@
 
 import { beforeEach, expect, test } from 'vitest'
 import ICAL from 'ical.js'
-import { getTimezoneManager } from '../../src/timezoneManager.js'
-import Timezone from '../../src/timezone.js'
+import { Timezone } from '../../src/timezone.ts'
+import { getTimezoneManager } from '../../src/timezoneManager.ts'
+import { getAsset } from '../utils.ts'
 
 beforeEach(() => {
 	getTimezoneManager().clearAllTimezones()
