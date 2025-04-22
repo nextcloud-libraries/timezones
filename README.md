@@ -2,6 +2,7 @@
 
 [![REUSE status](https://api.reuse.software/badge/github.com/nextcloud-libraries/timezones)](https://api.reuse.software/info/github.com/nextcloud-libraries/timezones)
 [![npm last version](https://img.shields.io/npm/v/@nextcloud/timezones.svg?style=flat-square)](https://www.npmjs.com/package/@nextcloud/timezones)
+[![Documentation](https://img.shields.io/badge/Documentation-online-brightgreen)](https://nextcloud-libraries.github.io/timezones/)
 
 A small library containing common time zone logic and data.
 
