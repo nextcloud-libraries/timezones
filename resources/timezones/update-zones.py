@@ -182,13 +182,24 @@ class TimezoneUpdater(object):
         return zones
 
     @staticmethod
+    def migrate_aliases(aliases):
+        """Migrate aliases from old (tzid: {"aliasTo": alias}) to new format (tzid: alias)"""
+        newaliases = {}
+        for key, value in aliases.items():
+            if type(value) is dict:
+                newaliases[key] = value["aliasTo"]
+            else:
+                newaliases[key] = value
+        return newaliases
+
+    @staticmethod
     def link_removed_zones(oldzones, newzones, links):
         """Checks which zones have been removed and creates an alias entry if there is one"""
         aliases = {}
         for key in oldzones:
             if key not in newzones and key in links:
                 sys.stderr.write("Linking %s to %s\n" % (key, links[key]))
-                aliases[key] = {"aliasTo": links[key]}
+                aliases[key] = links[key]
         return aliases
 
     @staticmethod
@@ -228,6 +239,7 @@ class TimezoneUpdater(object):
             self.zoneinfo_pure_path, lambda fn: self.read_ics(fn)
         )
 
+        zonesjson["aliases"] = self.migrate_aliases(zonesjson["aliases"])
         newaliases = self.link_removed_zones(zonesjson["zones"], newzones, links)
         zonesjson["aliases"].update(newaliases)
 
