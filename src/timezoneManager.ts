@@ -116,8 +116,8 @@ export class TimezoneManager {
 			this.registerTimezoneFromICS(tzid, ics)
 		}
 
-		for (const tzid in tzData.aliases) {
-			this.registerAlias(tzid, tzData.aliases[tzid].aliasTo)
+		for (const [tzid, alias] of Object.entries(tzData.aliases)) {
+			this.registerAlias(tzid, alias)
 		}
 	}
 
