@@ -1,6 +1,6 @@
 {
   "name": "@nextcloud/timezones",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "A small library containing common time zone logic and data",
   "homepage": "https://github.com/nextcloud-libraries/timezones",
   "bugs": {
