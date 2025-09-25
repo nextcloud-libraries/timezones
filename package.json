@@ -47,7 +47,7 @@
     "extends @nextcloud/browserslist-config"
   ],
   "dependencies": {
-    "ical.js": "^2.1.0"
+    "ical.js": "^2.2.1"
   },
   "devDependencies": {
     "@nextcloud/browserslist-config": "^3.0.1",
