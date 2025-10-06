@@ -1,3 +1,12 @@
+## [1.0.2](https://github.com/nextcloud-libraries/timezones/compare/v1.0.1...v1.0.2) (2025-10-06)
+
+
+### Bug Fixes
+
+* do not enforce npm versions in package.json ([0560c0f](https://github.com/nextcloud-libraries/timezones/commit/0560c0f1e13e7679d8ced34ddab270e394246f21))
+
+
+
 ## [1.0.1](https://github.com/nextcloud-libraries/timezones/compare/v1.0.0...v1.0.1) (2025-10-06)
 
 
