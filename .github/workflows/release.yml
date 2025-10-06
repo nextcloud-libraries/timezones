@@ -15,5 +15,5 @@ jobs:
       - name: Conventional nextcloud npm release
         uses: ChristophWurst/conventional-nextcloud-npm-release@de5407727bf973c74e8944853c38719aeff6bb8a # v1.0.0
         with:
-          github-token: ${{ secrets.RELEASE_PAT }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           npm-token: ${{ secrets.NPM_TOKEN }}
