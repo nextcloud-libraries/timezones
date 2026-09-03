@@ -37,8 +37,7 @@
 			"description": "Request JavaScript reviews",
 			"matchManagers": ["npm"],
 			"reviewers": [
-				"gretad",
-				"pabzm"
+				"gretad"
 			]
 		},
 		{
@@ -46,8 +45,7 @@
 			"matchManagers": ["github-actions"],
 			"extends": ["schedule:monthly"],
 			"reviewers": [
-				"gretad",
-				"pabzm"
+				"gretad"
 			]
 		},
 		{
