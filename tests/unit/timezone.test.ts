@@ -3,8 +3,8 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
-import { expect, test } from 'vitest'
 import ICAL from 'ical.js'
+import { expect, test } from 'vitest'
 import { Timezone } from '../../src/timezone.ts'
 import { getAsset } from '../utils.ts'
 
