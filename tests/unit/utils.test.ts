@@ -11,7 +11,6 @@ import {
 } from '../../src/utils.ts'
 
 describe('timezone sorter', () => {
-
 	test('should sort a timezone list', () => {
 		const sorted = getSortedTimezoneList(
 			[

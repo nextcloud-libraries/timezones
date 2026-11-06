@@ -4,11 +4,10 @@
  */
 
 import ICAL from 'ical.js'
-import { Timezone } from './timezone.ts'
 import tzData from '../resources/timezones/zones.json' with { type: 'json' }
+import { Timezone } from './timezone.ts'
 
 export class TimezoneManager {
-
 	/**
 	 * Map of aliases
 	 * Alias name => timezoneId
@@ -46,6 +45,7 @@ export class TimezoneManager {
 			}
 		}
 
+		// eslint-disable-next-line no-console -- Report broken alias chains; this library has no logger
 		console.error('TimezoneManager.getTimezoneForIdRec() exceeds recursion limits')
 		return null
 	}
@@ -104,8 +104,6 @@ export class TimezoneManager {
 	}
 
 	registerDefaultTimezones(): void {
-		console.debug(`@nextcloud/calendar-js app is using version ${tzData.version} of the timezone database`)
-
 		for (const tzid in tzData.zones) {
 			const ics = [
 				'BEGIN:VTIMEZONE',
@@ -181,12 +179,11 @@ export class TimezoneManager {
 
 		ICAL.TimezoneService.reset()
 
-		timezoneManager.registerTimezone(Timezone.utc)
-		timezoneManager.registerTimezone(Timezone.floating)
-		timezoneManager.registerAlias('GMT', Timezone.utc.timezoneId)
-		timezoneManager.registerAlias('Z', Timezone.utc.timezoneId)
+		this.registerTimezone(Timezone.utc)
+		this.registerTimezone(Timezone.floating)
+		this.registerAlias('GMT', Timezone.utc.timezoneId)
+		this.registerAlias('Z', Timezone.utc.timezoneId)
 	}
-
 }
 
 const timezoneManager = new TimezoneManager()

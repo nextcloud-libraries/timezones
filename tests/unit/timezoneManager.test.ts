@@ -4,8 +4,8 @@
  */
 
 import { beforeEach, expect, test } from 'vitest'
-import { getTimezoneManager } from '../../src/timezoneManager.ts'
 import { Timezone } from '../../src/timezone.ts'
+import { getTimezoneManager } from '../../src/timezoneManager.ts'
 import { getAsset } from '../utils.ts'
 
 beforeEach(() => {
@@ -163,7 +163,6 @@ test('TimezoneManager should provide a list of all timezones to include all alia
 	timezoneManager.registerAlias('foobar/Berlin', 'Europe/Berlin')
 
 	expect(timezoneManager.listAllTimezones(true)).toEqual(['UTC', 'floating', 'Europe/Berlin', 'America/New_York', 'America/Los_Angeles', 'GMT', 'Z', 'foobar/Berlin'])
-
 })
 
 test('TimezoneManager should provide a method to unregister timezones', () => {

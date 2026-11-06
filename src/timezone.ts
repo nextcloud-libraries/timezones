@@ -6,7 +6,6 @@
 import ICAL from 'ical.js'
 
 export class Timezone {
-
 	/**
 	 * Id of the timezone.
 	 */
@@ -85,8 +84,8 @@ export class Timezone {
 	/**
 	 * Converts a timestamp to an array of year, month, day, hour, minute, second.
 	 *
-	 * @param {number} ms Timestamp in milliseconds
-	 * @return {number[]}
+	 * @param ms Timestamp in milliseconds
+	 * @return
 	 */
 	timestampToArray(ms: number): number[] {
 		// just create a dummy object because fromUnixTime is not exposed on ICAL.Time
@@ -142,5 +141,4 @@ export class Timezone {
 	public static get floating() {
 		return new Timezone(ICAL.Timezone.localTimezone)
 	}
-
 }
