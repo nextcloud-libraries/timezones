@@ -35,6 +35,8 @@
   "scripts": {
     "build": "vite build --mode=production",
     "build:doc": "typedoc --html dist/doc src/index.ts ",
+    "changelog": "conventional-changelog -p angular -n changelog.config.js -i CHANGELOG.md -s",
+    "changelog:full": "conventional-changelog -p angular -n changelog.config.js -i CHANGELOG.md -s -r 0",
     "dev": "vite build --mode=development",
     "lint": "eslint",
     "lint:fix": "eslint --fix",
@@ -54,6 +56,7 @@
     "@nextcloud/eslint-config": "^9.0.1",
     "@nextcloud/vite-config": "^3.0.0-beta.1",
     "@types/node": "^26.6.6",
+    "conventional-changelog-cli": "^5.0.0",
     "typedoc": "^0.28.20",
     "typescript": "^5.9.3",
     "vite": "^8.3.8",
