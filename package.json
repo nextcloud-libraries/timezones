@@ -1,6 +1,6 @@
 {
   "name": "@nextcloud/timezones",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "A small library containing common time zone logic and data",
   "homepage": "https://github.com/nextcloud-libraries/timezones",
   "bugs": {
@@ -18,13 +18,13 @@
   "type": "module",
   "exports": {
     ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs",
-      "types": "./dist/index.d.ts"
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
     },
     "./resources/timezones/zones.json": "./resources/timezones/zones.json"
   },
-  "main": "dist/index.cjs",
+  "main": "dist/index.mjs",
+  "types": "dist/index.d.mts",
   "files": [
     "README.md",
     "CHANGELOG.md",
@@ -52,11 +52,11 @@
   "devDependencies": {
     "@nextcloud/browserslist-config": "^3.1.2",
     "@nextcloud/eslint-config": "^9.0.1",
-    "@nextcloud/vite-config": "^2.5.4",
+    "@nextcloud/vite-config": "^3.0.0-beta.1",
     "@types/node": "^26.6.6",
     "typedoc": "^0.28.20",
     "typescript": "^5.9.3",
-    "vite": "^7.3.8",
+    "vite": "^8.3.8",
     "vitest": "^4.0.0"
   },
   "engines": {
